@@ -5,18 +5,22 @@
 @model BooksViewModel
 
 <h1 class="text-center"> Bookstore </h1>
-@foreach (Book b in Model.Books) 
-{ 
-    <h3>@b.Title</h3>
-    <ul>
-        <li>Author: @b.Author</li>
-        <li>Publisher: @b.Publisher</li>
-        <li>ISBN: @b.Isbn</li>
-        <li>Category: @b.Category</li>
-        <li>Classification: @b.Classification</li>
-        <li># of Pages: @b.PageCount</li>
-        <li>Price: @b.Price</li>
-    </ul>
-} 
+<div class="d-flex justify-content-between flex-wrap">
+    @foreach (Book b in Model.Books)
+    {
+    <div style="width: 30% !important;" class="mb-3 mr-2">
+        <h3 >@b.Title</h3>
+        <ul>
+            <li>Author: @b.Author</li>
+            <li>Publisher: @b.Publisher</li>
+            <li>ISBN: @b.Isbn</li>
+            <li>Category: @b.Category</li>
+            <li>Classification: @b.Classification</li>
+            <li># of Pages: @b.PageCount</li>
+            <li>Price: @b.Price</li>
+        </ul>
+    </div>
+    }
+</div>
 
-<div page-blah="@Model.PageInfo" page-action="Index"></div>
+<div page-blah="@Model.PageInfo" page-action="Index" class="d-flex justify-content-center"></div>
