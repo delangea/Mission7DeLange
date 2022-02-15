@@ -1,8 +1,22 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Bookstore";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@model BooksViewModel
+
+<h1 class="text-center"> Bookstore </h1>
+@foreach (Book b in Model.Books) 
+{ 
+    <h3>@b.Title</h3>
+    <ul>
+        <li>Author: @b.Author</li>
+        <li>Publisher: @b.Publisher</li>
+        <li>ISBN: @b.Isbn</li>
+        <li>Category: @b.Category</li>
+        <li>Classification: @b.Classification</li>
+        <li># of Pages: @b.PageCount</li>
+        <li>Price: @b.Price</li>
+    </ul>
+} 
+
+<div page-blah="@Model.PageInfo" page-action="Index"></div>
