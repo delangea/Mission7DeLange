@@ -22,10 +22,13 @@ namespace Mission7DeLange.Controllers
             int pageSize = 10;
             var thing = new BooksViewModel
             {
+                //grab list of all books ordered by title
+                //skip based on page youre currently on, take based amount desired on page
                 Books = repo.Books
                 .OrderBy(x => x.Title)
                 .Skip((pageNum -1) * pageSize)
                 .Take(pageSize),
+                //load page info
                 PageInfo = new PageInfo
                 {
                     TotalNumBooks = repo.Books.Count(),
