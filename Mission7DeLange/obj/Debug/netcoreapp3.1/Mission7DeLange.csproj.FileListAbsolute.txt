@@ -72,3 +72,9 @@ C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\bin\Deb
 C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Debug\netcoreapp3.1\Razor\Pages\Cart.cshtml.g.cs
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Debug\netcoreapp3.1\Razor\Pages\_CartLayout.cshtml.g.cs
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Debug\netcoreapp3.1\Razor\Views\Shared\BookInfo.cshtml.g.cs
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Category\Default.cshtml.g.cs

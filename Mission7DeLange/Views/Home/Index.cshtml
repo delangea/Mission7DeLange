@@ -4,23 +4,10 @@
 
 @model BooksViewModel
 
-<h1 class="text-center"> Bookstore </h1>
-<div class="d-flex justify-content-between flex-wrap">
     @foreach (Book b in Model.Books)
     {
-    <div style="width: 30% !important;" class="mb-3 mr-2">
-        <h3 >@b.Title</h3>
-        <ul>
-            <li>Author: @b.Author</li>
-            <li>Publisher: @b.Publisher</li>
-            <li>ISBN: @b.Isbn</li>
-            <li>Category: @b.Category</li>
-            <li>Classification: @b.Classification</li>
-            <li># of Pages: @b.PageCount</li>
-            <li>Price: @b.Price</li>
-        </ul>
-    </div>
+        <partial name="BookInfo" model="b" />
     }
-</div>
 
-<div page-blah="@Model.PageInfo" page-action="Index" class="d-flex justify-content-center"></div>
+<div page-blah="@Model.PageInfo" page-action="Index" page-class="btn" page-class-enabled="true" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+     class="btn-group pull-right m-1"></div>

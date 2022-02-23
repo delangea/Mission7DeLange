@@ -32,6 +32,9 @@ namespace Mission7DeLange
                 options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
             });
             services.AddScoped<IBookRepository, EFBookRepository>();
+            services.AddRazorPages();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -48,7 +51,7 @@ namespace Mission7DeLange
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -56,8 +59,19 @@ namespace Mission7DeLange
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    name: "CategoryPage",
+                    pattern: "{bookCategory}/Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index" }
+                    );
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index", pageNum = 1 }
+                    );
+                endpoints.MapControllerRoute("category", "{bookCategory}", new { Controller = "Home", action = "Index", pageNum = 1 });
+                endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }

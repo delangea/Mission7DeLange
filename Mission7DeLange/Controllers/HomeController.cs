@@ -17,7 +17,7 @@ namespace Mission7DeLange.Controllers
         {
             repo = temp;
         }
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string bookCategory, int pageNum = 1)
         {
             int pageSize = 10;
             var thing = new BooksViewModel
@@ -25,13 +25,15 @@ namespace Mission7DeLange.Controllers
                 //grab list of all books ordered by title
                 //skip based on page youre currently on, take based amount desired on page
                 Books = repo.Books
+                .Where(b => b.Category == bookCategory || bookCategory == null)
                 .OrderBy(x => x.Title)
                 .Skip((pageNum -1) * pageSize)
                 .Take(pageSize),
                 //load page info
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.Books.Count(),
+                    //make it so that it works based on filters when a category is selected 
+                    TotalNumBooks = (bookCategory == null ? repo.Books.Count() : repo.Books.Where(b => b.Category == bookCategory).Count()),
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }
