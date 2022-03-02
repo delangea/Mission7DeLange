@@ -7,6 +7,7 @@
 <div class="">
     @if (Model.Items.Count() > 0)
     {
+        // adds stuff next to shopping cart showing number of items and total
         <small class="navbar-text">
             <b>Your cart:</b>
             @Model.Items.Sum(x => x.Quantity) item(s)

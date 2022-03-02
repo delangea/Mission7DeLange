@@ -4,6 +4,7 @@ namespace Mission7DeLange.Components
 {
     public class CartSummaryViewComponent : ViewComponent
     {
+        //used to create the cart qty and total in the navbar 
         private Cart cart;
         public CartSummaryViewComponent(Cart cartService)
         {
