@@ -53,9 +53,7 @@ using Mission7DeLange.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/books/edit/{id:long}")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/books/create")]
-    public partial class Editor : OwningComponentBase<IBookRepository>
+    public partial class PurchasesTable : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -63,39 +61,16 @@ using Mission7DeLange.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\Pages\Admin\Editor.razor"
+#line 43 "C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\Pages\Admin\PurchasesTable.razor"
        
-    public IBookRepository repo => Service;
-
     [Parameter]
-    public long id { get; set; } = 0;
-
-    public string ThemeColor => id == 0 ? "primary" : "warning";
-    public string TitleText => id == 0 ? "Create" : "Edit";
-
-    public Book b { get; set; } = new Book();
-    protected override void OnParametersSet()
-    {
-        if (id != 0)
-        {
-            b = repo.Books.FirstOrDefault(x => x.BookId == id);
-        }
-    }
-    public void SaveBook()
-    {
-        if (id == 0)
-        {
-            repo.CreateBook(b);
-
-        }
-        else
-        {
-            repo.SaveBook(b);
-        }
-        NavManager.NavigateTo("/admin/books");
-    }
-    [Inject]
-    public NavigationManager NavManager { get; set; }
+    public string TableTitle { get; set; } = "Orders";
+    [Parameter]
+    public IEnumerable<Purchase> ListPurchase { get; set; }
+    [Parameter]
+    public string ButtonLabel { get; set; } = "Shipped";
+    [Parameter]
+    public EventCallback<int> PurchaseSelected { get; set; }
 
 
 

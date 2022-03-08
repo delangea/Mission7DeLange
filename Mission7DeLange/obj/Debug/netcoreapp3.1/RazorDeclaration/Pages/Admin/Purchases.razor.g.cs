@@ -53,13 +53,48 @@ using Mission7DeLange.Models;
 #line default
 #line hidden
 #nullable disable
-    public partial class Purchases : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/purchases")]
+    public partial class Purchases : OwningComponentBase<IPurchaseRepository>
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 12 "C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\Pages\Admin\Purchases.razor"
+      
+    public IPurchaseRepository repo => Service;
+
+    public IEnumerable<Purchase> AllPurchases { get; set; }
+    public IEnumerable<Purchase> UncollectedPurchases { get; set; }
+    public IEnumerable<Purchase> CollectedPurchases { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        AllPurchases = await repo.Purchases.ToListAsync();
+        UncollectedPurchases = AllPurchases.Where(x => !x.PurchaseShipped);
+        CollectedPurchases = AllPurchases.Where(x => x.PurchaseShipped);
+
+    }
+    public void ShipPurchase(int id) => UpdatePurchase(id, true);
+    public void ResetPurchase(int id) => UpdatePurchase(id, false);
+
+    private void UpdatePurchase(int id, bool shipped)
+    {
+        Purchase p = repo.Purchases.FirstOrDefault(x => x.PurchaseId == id);
+        p.PurchaseShipped = shipped;
+        repo.SavePurchase(p);
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

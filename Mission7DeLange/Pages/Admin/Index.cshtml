@@ -1,4 +1,19 @@
-﻿@page
+﻿@page "/admin"
 @model Mission7DeLange.Pages.Admin.IndexModel
 @{
 }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Bookstore Admin
+    </title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+<body>
+    <component type="typeof(Mission7DeLange.Pages.Admin.Routed)" render-mode="Server" />
+    <script src="/_framework/blazor.server.js"></script>
+</body>
+</html>

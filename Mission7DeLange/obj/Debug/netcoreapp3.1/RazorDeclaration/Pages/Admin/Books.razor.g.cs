@@ -53,13 +53,43 @@ using Mission7DeLange.Models;
 #line default
 #line hidden
 #nullable disable
-    public partial class Books : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/admin/books")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/admin")]
+    public partial class Books : OwningComponentBase<IBookRepository>
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 45 "C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\Pages\Admin\Books.razor"
+       
+    public IBookRepository repo => Service;
+
+    public IEnumerable<Book> BookData { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        BookData = await repo.Books.ToListAsync();
+    }
+    public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";
+    public string GetEditUrl(long id) => $"/admin/books/edit/{id}";
+
+    public async Task RemoveBook(Book b)
+    {
+        repo.DeleteBook(b);
+        await UpdateData();
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

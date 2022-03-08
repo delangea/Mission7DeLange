@@ -30,6 +30,8 @@ namespace Mission7DeLange.Models
 
         [Required(ErrorMessage = "Please Enter a country.")]
         public string Country { get; set; }
+        [BindNever]
+        public bool PurchaseShipped { get; set; }
 
     }
 }
