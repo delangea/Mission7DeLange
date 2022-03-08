@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -29,5 +30,7 @@ namespace Mission7DeLange.Models
         public int PageCount { get; set; }
         [Required]
         public double Price { get; set; }
+        [BindNever]
+        public bool Shipped { get; set; }
     }
 }
