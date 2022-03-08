@@ -2,8 +2,11 @@
 @page "/admin"
 @inherits OwningComponentBase<IBookRepository>
 
+<div class="alert alert-danger" role="alert">
+    There is no way to recover a book once it has been deleted. Click carefully!
+</div>
 <table class="table table-sm table-striped table-bordered">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th>Book Id</th>
             <th>Title</th>

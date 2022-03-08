@@ -63,7 +63,7 @@ using Mission7DeLange.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 45 "C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\Pages\Admin\Books.razor"
+#line 48 "C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\Pages\Admin\Books.razor"
        
     public IBookRepository repo => Service;
 

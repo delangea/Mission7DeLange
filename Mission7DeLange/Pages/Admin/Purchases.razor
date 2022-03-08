@@ -2,10 +2,10 @@
 
 @inherits OwningComponentBase<IPurchaseRepository>
 
-<PurchasesTable TableTitle="Uncollected Donations" ListPurchase="UncollectedPurchases" ButtonLabel="Collected" PurchaseSelected="ShipPurchase">
+<PurchasesTable TableTitle="Not Shipped Purchases" ListPurchase="UnshippedPurchases" ButtonLabel="Shipped" PurchaseSelected="ShipPurchase">
 </PurchasesTable>
 
-<PurchasesTable TableTitle="Collected Donations" ListPurchase="CollectedPurchases" ButtonLabel="Reset" PurchaseSelected="ResetPurchase">
+<PurchasesTable TableTitle="Shipped Purchases" ListPurchase="ShippedPurchases" ButtonLabel="Reset" PurchaseSelected="ResetPurchase">
 </PurchasesTable>
 
 <button class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Data</button>
@@ -13,8 +13,8 @@
     public IPurchaseRepository repo => Service;
 
     public IEnumerable<Purchase> AllPurchases { get; set; }
-    public IEnumerable<Purchase> UncollectedPurchases { get; set; }
-    public IEnumerable<Purchase> CollectedPurchases { get; set; }
+    public IEnumerable<Purchase> UnshippedPurchases { get; set; }
+    public IEnumerable<Purchase> ShippedPurchases { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
@@ -24,8 +24,8 @@
     public async Task UpdateData()
     {
         AllPurchases = await repo.Purchases.ToListAsync();
-        UncollectedPurchases = AllPurchases.Where(x => !x.PurchaseShipped);
-        CollectedPurchases = AllPurchases.Where(x => x.PurchaseShipped);
+        UnshippedPurchases = AllPurchases.Where(x => !x.PurchaseShipped);
+        ShippedPurchases = AllPurchases.Where(x => x.PurchaseShipped);
 
     }
     public void ShipPurchase(int id) => UpdatePurchase(id, true);

@@ -63,27 +63,27 @@ using Mission7DeLange.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\Pages\Admin\Editor.razor"
+#line 65 "C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\Pages\Admin\Editor.razor"
        
     public IBookRepository repo => Service;
 
     [Parameter]
-    public long id { get; set; } = 0;
+    public long Id { get; set; } = 0;
 
-    public string ThemeColor => id == 0 ? "primary" : "warning";
-    public string TitleText => id == 0 ? "Create" : "Edit";
+    public string ThemeColor => Id == 0 ? "primary" : "warning";
+    public string TitleText => Id == 0 ? "Create" : "Edit";
 
     public Book b { get; set; } = new Book();
     protected override void OnParametersSet()
     {
-        if (id != 0)
+        if (Id != 0)
         {
-            b = repo.Books.FirstOrDefault(x => x.BookId == id);
+            b = repo.Books.FirstOrDefault(x => x.BookId == Id);
         }
     }
     public void SaveBook()
     {
-        if (id == 0)
+        if (Id == 0)
         {
             repo.CreateBook(b);
 

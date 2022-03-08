@@ -67,8 +67,8 @@ using Mission7DeLange.Models;
     public IPurchaseRepository repo => Service;
 
     public IEnumerable<Purchase> AllPurchases { get; set; }
-    public IEnumerable<Purchase> UncollectedPurchases { get; set; }
-    public IEnumerable<Purchase> CollectedPurchases { get; set; }
+    public IEnumerable<Purchase> UnshippedPurchases { get; set; }
+    public IEnumerable<Purchase> ShippedPurchases { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
@@ -78,8 +78,8 @@ using Mission7DeLange.Models;
     public async Task UpdateData()
     {
         AllPurchases = await repo.Purchases.ToListAsync();
-        UncollectedPurchases = AllPurchases.Where(x => !x.PurchaseShipped);
-        CollectedPurchases = AllPurchases.Where(x => x.PurchaseShipped);
+        UnshippedPurchases = AllPurchases.Where(x => !x.PurchaseShipped);
+        ShippedPurchases = AllPurchases.Where(x => x.PurchaseShipped);
 
     }
     public void ShipPurchase(int id) => UpdatePurchase(id, true);
