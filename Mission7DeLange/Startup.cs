@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +33,11 @@ namespace Mission7DeLange
             {
                 options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
             });
+            services.AddDbContext<AppIdentityDBContext>(options =>
+            {
+                options.UseSqlite(Configuration["ConnectionStrings:IdentityConnection"]);
+            });
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDBContext>();
             services.AddScoped<IBookRepository, EFBookRepository>();
             services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
             services.AddRazorPages();
@@ -80,6 +86,7 @@ namespace Mission7DeLange
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
             });
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }
