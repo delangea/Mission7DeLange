@@ -65,6 +65,7 @@ namespace Mission7DeLange
             app.UseSession();
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

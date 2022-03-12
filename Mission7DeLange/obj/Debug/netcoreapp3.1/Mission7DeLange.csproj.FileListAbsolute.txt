@@ -102,3 +102,9 @@ C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Deb
 C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Routed.razor.g.cs
 C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\_Imports.razor.g.cs
 C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Index.cshtml.g.cs
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\annad\OneDrive\Documents\GitHub\Mission7DeLange\Mission7DeLange\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
